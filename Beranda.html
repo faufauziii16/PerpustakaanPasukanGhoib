@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Beranda Perpustakaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eeeeee;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #347035;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            width: 100%;
+            background-color: rgb(114, 143, 72);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        nav ul li:nth-child(3) > a::after {
+            content: " \25BC";
+            font-size: 0.8em;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 140%;
+            left: 0;
+            background-color: rgb(114, 143, 72);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul ul li {
+            width: 180px;
+        }
+        nav ul ul li a {
+            padding: 10px 15px;
+            color: white;
+            background-color: rgb(114, 143, 72);
+            margin-bottom: 10px;
+            margin-top: 5px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+        }
+        footer {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 25px;
+        }
+        header img {
+            vertical-align: middle;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .text-section {
+            width: 60%;
+            font-size: 1em;
+            color: #333;
+            text-align: justify;
+            text-indent: 25px;
+        }
+        .image-section {
+            width: 35%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-section img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .address {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+        }
+        h1 {
+            font-size: 2em;
+            color: #555;
+            margin: 20px 0;
+        }
+        .books-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .book {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 180px;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .book img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .book-title {
+            font-size: 1em;
+            color: #333;
+            margin: 10px 0;
+        }
+        .book-author {
+            font-size: 0.9em;
+            color: #777;
+            margin: 5px 0;
+        }
+        .book:hover {
+            background-color: #c1c1c1;
+        }
+        .info-boxes {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .info-box {
+            flex: 1 1 calc(25% - 10px);
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .info-box:nth-child(1) {
+            background-color: #f80015;
+        }
+        .info-box:nth-child(2) {
+            background-color: #00ff3c;
+        }
+        .info-box:nth-child(3) {
+            background-color: #00d9ff;
+        }
+        .info-box:nth-child(4) {
+            background-color: #ffc400;
+        }
+        .info-box h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .info-box p {
+            margin: 0;
+            color: #777;
+        }
+        .info-box:hover {
+            background-color: #e9e9e9;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+            }
+            footer {
+                padding: 15px 0;
+            }
+            
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .text-section, .image-section {
+                width: 100%;
+                text-align: center;
+            }
+            .text-section {
+                text-indent: 0;
+            }
+            .info-boxes {
+                flex-direction: column;
+                align-items: center;
+                margin-right: 50px;
+            }
+            .info-box {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .book {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.png" alt="Logo Pasukan Ghoib Library" width="200">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Beranda.html">Beranda</a></li>
+            <li>
+                <a href="">Reservasi</a>
+                <ul>
+                    <li><a href="Transaksi.html">Buat Reservasi</a></li>
+                    <li><a href="Daftar Transaksi.html">Riwayat Reservasi</a></li>
+                </ul>
+            </li>
+            <li><a href="Profil.html">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="text-section">
+            <p>
+                Perpustakaan Pasukan Ghoib didirikan pada bulan Januari 2025 dengan tujuan untuk menyediakan akses yang luas dan mudah ke berbagai literatur berkualitas. Sejak awal berdirinya, perpustakaan kami telah menjadi tempat yang dihargai oleh para pecinta buku dan peneliti dari berbagai kalangan. Kami menawarkan koleksi buku yang kaya dan beragam, dari karya sastra klasik hingga buku ilmu pengetahuan terkini.
+            </p>
+            <p>
+                Beberapa layanan kami yaitu buku online untuk mempermudah literasi darimana saja. Selain itu kami juga menyediakan fasilitas reservasi untuk memastikan kenyamanan dan kemudahan Anda dalam mengakses sumber daya kami. Baik Anda seorang pelajar yang membutuhkan referensi akademik, seorang profesional yang mencari inspirasi, atau seorang pembaca santai yang menikmati novel terbaru, Perpustakaan Pasukan Ghoib adalah tempat yang tepat untuk Anda.
+            </p>
+            <p>
+                E-Book yang dapat dibaca secara langsung dapat di klik pada judul buku yang terdapat pada bagian E-Book Bestsellers di halaman bawah Beranda. Untuk Kunjungan perorangan dapat mengisi formulir reservasi pada menu Buat Reservasi. Sedangkan jika kunjungan rombongan dapat langsung menghubungi kami pada kontak Reservasi Lanjutan di About Us
+            </p>
+            <p>
+                Temukan keajaiban dunia literatur di Perpustakaan Pasukan Ghoib dan jadikan kami bagian dari perjalanan pengetahuan Anda!
+            </p>
+        </div>
+        <div class="image-section">
+            <img src="Gedung.jpeg" alt="Library Photo">
+            <div class="address">Jalan Senyum Manis No. 432, Desa Tawa Ceria, Kecamatan Gelak Riang Gembira, Kota Ngakak Bahagia, Negara Tertawalahsaja</div>
+        </div>
+    </div>
+
+    <div class="info-boxes">
+        <div class="info-box">
+            <h3>Jumlah Member</h3>
+            <p>300 Member</p>
+        </div>
+        <div class="info-box">
+            <h3>Jumlah E-Book</h3>
+            <p>500 E-Book</p>
+        </div>
+        <div class="info-box">
+            <h3>Jumlah Buku</h3>
+            <p>1500 Buku</p>
+        </div>
+        <div class="info-box">
+            <h3>Jam Operasional</h3>
+            <p>Senin - Jumat: 09.00 - 17.00</p>
+            <p>Sabtu: 10.00 - 15.00</p>
+            <p>Minggu: Tutup</p>
+        </div>
+    </div>
+
+    <h1>E-Book Bestsellers</h1>
+    <div class="books-container">
+        <a href="https://drive.google.com/file/d/1tr9XO_D4kWNgQI5V1T6De7hNujuMPmSv/view" class="book">
+            <img height="180" src="https://imgv2-2-f.scribdassets.com/img/document/703088086/original/856b59b01e/1719836878?v=1" width="120"/>
+            <div class="book-title">SUKSES UTBK 2024</div>
+            <div class="book-author">by UTBK.Masukkampus</div>
+        </a>
+        <a href="https://drive.google.com/file/d/1lHC0IuC76KdYGOJfbxpfUrJHXrln3N4N/view" class="book">
+            <img height="180" src="https://bukukita.com/babacms/displaybuku/68357_f.jpg" width="120"/>
+            <div class="book-title">JUST MEMORY</div>
+            <div class="book-author">by IngatanSekolah</div>
+        </a>
+        <a href="https://jdih.situbondokab.go.id/barang/buku/Berani%20Tidak%20Disukai%20(Ichiro%20Kishimi,%20Fumitake%20Koga)%20(z-lib.org).pdf" class="book">
+            <img height="180" src="https://cdn.gramedia.com/uploads/items/9786020633213.jpg" width="120"/>
+            <div class="book-title">BERANI TIDAK DISUKAI</div>
+            <div class="book-author">by Ichiro Kishimi & Fumitake Koga</div>
+        </a>
+        <a href="https://drive.google.com/file/d/1x5iZEUmCkJ8sujJfr_-lvVAD0B57dpwk/view" class="book">
+            <img height="180" src="https://cdn.gramedia.com/uploads/items/9786020519906_Super-Diktat-CPNS-CAT-2019---2020.jpg" width="120"/>
+            <div class="book-title">SUPER DIKTAT CPNS CAT 2019-2020</div>
+            <div class="book-author">by Tim Kompas Ilmu</div>
+        </a>
+        <a href="https://cdn.kemenag.go.id/storage/archives/buku-tuntunan-manasik-haji-dan-umrah-1-2pdf.pdf" class="book">
+            <img height="180" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShqBQpIkxNPsntqOxDG-3XYqzkJoJnAs5_wg&s" width="120"/>
+            <div class="book-title">TUNTUNAN MANASIK HAJI DAN UMRAH</div>
+            <div class="book-author">by Kementerian Agama RI</div>
+        </a>
+    </div>
+    <footer>
+        &copy; 2025 Pasukan Ghoib Library.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Perpustakaan</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://png.pngtree.com/thumb_back/fh260/background/20230425/pngtree-an-old-library-has-wooden-step-leading-to-stairs-image_2513238.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-box {
+            margin-top: 20px;
+        }
+        .login-box input, .login-box button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .login-box button {
+            background-color: #2600ff;
+            color: white;
+            cursor: pointer;
+        }
+        .login-box button:hover {
+            background-color: #45a049;
+        }
+        .extra-links {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .extra-links a {
+            color: #ffffff;
+            text-decoration: underline;
+            margin: 0 10px;
+        }
+        .quote {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .subtitle {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .footer {
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 30px;
+            }
+            .subtitle {
+                font-size: 20px;
+            }
+            .login-box input, .login-box button {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .title {
+                font-size: 24px;
+            }
+            .subtitle {
+                font-size: 18px;
+            }
+            .login-box input, .login-box button {
+                padding: 6px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="Logo.png" width="250" alt="Logo">
+        </header>
+        <div class="title">LOGIN</div>
+        <form class="login-box" action="Beranda.html" method="get">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <div class="extra-links">
+            <a href="Beranda.html">Daftar</a> |
+            <a href="Beranda.html">Lupa Password?</a>
+        </div>
+        <div class="subtitle">PASUKAN GHOIB LIBRARY</div>
+        <div class="quote">"The only thing that you absolutely have to know is the location of the library." — Albert Einstein</div>
+        <div class="footer">&copy; 2025 Pasukan Ghoib Library.</div>
+    </div>
+</body>
+</html>

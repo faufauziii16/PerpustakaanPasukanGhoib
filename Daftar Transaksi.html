@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Reservasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            width: 100%;
+            background-color: rgb(114, 143, 72);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        nav ul li:nth-child(3) > a::after {
+            content: " \25BC";
+            font-size: 0.8em;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 140%;
+            left: 0;
+            background-color: rgb(114, 143, 72);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul ul li {
+            width: 180px;
+        }
+        nav ul ul li a {
+            padding: 10px 15px;
+            color: white;
+            background-color: rgb(114, 143, 72);
+            margin-bottom: 10px;
+            margin-top: 5px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .ticket {
+            background-color: #bfccbf;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ticket table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 0px 0;
+        }
+        .ticket td {
+            padding: 5px;
+            vertical-align: top;
+        }
+        .ticket td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+        .ticket td:nth-child(2) {
+            width: 5%;
+            text-align: center;
+        }
+        .entry-code {
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2C5F2D;
+        }
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+            user-select: none;
+        }
+        footer {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 25px;
+        }
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+            }
+            footer {
+                padding: 15px 0;
+            }
+            .ticket {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .ticket table {
+                width: 100%;
+            }
+            .entry-code {
+                width: 100%;
+                justify-content: flex-start;
+                font-size: 1.2em;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+            }
+            .container {
+                width: 90%;
+                padding: 10px;
+            }
+            .ticket {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .entry-code {
+                font-size: 1em;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo of Pasukan Ghoib Library" width="200">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Beranda.html">Beranda</a></li>
+            <li>
+                <a href="">Reservasi</a>
+                <ul>
+                    <li><a href="Transaksi.html">Buat Reservasi</a></li>
+                    <li><a href="Daftar Transaksi.html">Riwayat Reservasi</a></li>
+                </ul>
+            </li>
+            <li><a href="Profil.html">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>RIWAYAT RESERVASI</h1>
+        <div class="ticket">
+            <div class="watermark">PASUKAN GHOIB LIBRARY</div>
+            <table>
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td>Arief Aziz</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>ariefaziz12@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>No. Telepon</td>
+                    <td>:</td>
+                    <td>081111111111</td>
+                </tr>
+                <tr>
+                    <td>Tanggal Reservasi</td>
+                    <td>:</td>
+                    <td>01-21-2025</td>
+                </tr>
+                <tr>
+                    <td>Waktu Reservasi</td>
+                    <td>:</td>
+                    <td>10:00 AM</td>
+                </tr>
+                <tr>
+                    <td>Keperluan</td>
+                    <td>:</td>
+                    <td>Membaca buku</td>
+                </tr>
+            </table>
+            <div class="entry-code">
+                Kode Masuk : 001A1
+            </div>
+        </div>
+        <div class="ticket">
+            <div class="watermark">PASUKAN GHOIB LIBRARY</div>
+            <table>
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td>Iqbal Firmansyah</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>ballfirmansyah@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>No. Telepon</td>
+                    <td>:</td>
+                    <td>082222222222</td>
+                </tr>
+                <tr>
+                    <td>Tanggal Reservasi</td>
+                    <td>:</td>
+                    <td>01-22-2025</td>
+                </tr>
+                <tr>
+                    <td>Waktu Reservasi</td>
+                    <td>:</td>
+                    <td>02:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Keperluan</td>
+                    <td>:</td>
+                    <td>Menulis catatan</td>
+                </tr>
+            </table>
+            <div class="entry-code">
+                Kode Masuk : 001A2
+            </div>
+        </div>
+        <div class="ticket">
+            <div class="watermark">PASUKAN GHOIB LIBRARY</div>
+            <table>
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td>Rizky Al Farisi</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>rzfrsyy@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>No. Telepon</td>
+                    <td>:</td>
+                    <td>083333333333</td>
+                </tr>
+                <tr>
+                    <td>Tanggal Reservasi</td>
+                    <td>:</td>
+                    <td>01-23-2025</td>
+                </tr>
+                <tr>
+                    <td>Waktu Reservasi</td>
+                    <td>:</td>
+                    <td>11:34 AM</td>
+                </tr>
+                <tr>
+                    <td>Keperluan</td>
+                    <td>:</td>
+                    <td>Mencari referensi</td>
+                </tr>
+            </table>
+            <div class="entry-code">
+                Kode Masuk : 001A3
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Pasukan Ghoib Library.
+    </footer>
+</body>
+</html>

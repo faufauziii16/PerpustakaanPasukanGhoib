@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Perpustakaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            width: 100%;
+            background-color: rgb(114, 143, 72);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        nav ul li:nth-child(3) > a::after {
+            content: " \25BC";
+            font-size: 0.8em;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 140%;
+            left: 0;
+            background-color: rgb(114, 143, 72);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul ul li {
+            width: 180px;
+        }
+        nav ul ul li a {
+            padding: 10px 15px;
+            color: white;
+            background-color: rgb(114, 143, 72);
+            margin-bottom: 10px;
+            margin-top: 5px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .form-container {
+            width: 60%;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #2600ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: rgb(114, 143, 72);
+        }
+        .form-group input[type="submit"]:active {
+            background-color: #1e1e1e;
+        }
+        .image-container {
+            width: 30%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 70%;
+            margin-left: 22%;
+        }
+        footer {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 25px;
+        }
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+            }
+            footer {
+                padding: 15px 0;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .form-container, .image-container {
+                width: 70%;
+                margin-top: 20px;
+            }
+            .image-container img {
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+        }
+        .centang {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .centang-content {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo.png" alt="Logo of Pasukan Ghoib Library" width="200">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Index.html">Login</a></li>
+            <li><a href="Beranda.html">Beranda</a></li>
+            <li>
+                <a href="#">Reservasi</a>
+                <ul>
+                    <li><a href="Transaksi.html">Buat Reservasi</a></li>
+                    <li><a href="Daftar Transaksi.html">Riwayat Reservasi</a></li>
+                </ul>
+            </li>
+            <li><a href="Profil.html">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="image-container">
+            <img src="https://masukkampus.smbbtelkom.ac.id/mod/assets/img/illustrations/windows.svg" alt="Library Photo">
+        </div>
+        <div class="form-container">
+            <h1>FORMULIR RESERVASI</h1>
+            <form name="reservationForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap:</label>
+                    <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
+                </div>
+                <div class="form-group">
+                    <label for="phone">No. Telepon:</label>
+                    <input type="text" id="phone" name="phone" placeholder="Masukkan nomor telepon Anda">
+                </div>
+                <div class="form-group">
+                    <label for="date">Tanggal Reservasi:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="time">Waktu Reservasi:</label>
+                    <input type="time" id="time" name="time">
+                </div>
+                <div class="form-group">
+                    <label for="purpose">Keperluan:</label>
+                    <textarea id="purpose" name="purpose" rows="4" placeholder="Jelaskan keperluan reservasi Anda"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Kirim">
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Pasukan Ghoib Library.
+    </footer>
+
+    <div id="successCentang" class="centang">
+        <div class="centang-content">
+            <span class="close-button" onclick="closeCentang()" aria-label="Tutup modal">&times;</span>
+            <img src="https://png.pngtree.com/png-vector/20191113/ourmid/pngtree-green-check-mark-icon-flat-style-png-image_1986021.jpg" width="150" alt="Centang Hijau">
+            <h2>Berhasil!</h2>
+            <p>Reservasi Anda telah berhasil dikirim.</p>
+        </div>
+    </div>
+    
+    <script>
+        function validateForm() {
+            const name = document.forms["reservationForm"]["name"].value.trim();
+            const email = document.forms["reservationForm"]["email"].value.trim();
+            const phone = document.forms["reservationForm"]["phone"].value.trim();
+            const date = document.forms["reservationForm"]["date"].value.trim();
+            const time = document.forms["reservationForm"]["time"].value.trim();
+            const purpose = document.forms["reservationForm"]["purpose"].value.trim();
+
+            if (!name || !email || !phone || !date || !time || !purpose) {
+                alert("Semua data harus diisi sebelum dikirim!");
+                return false;
+            }
+
+            const centang = document.getElementById("successCentang");
+            centang.style.display = "flex";
+
+            document.forms["reservationForm"].reset();
+            return false;
+        }
+            function closeCentang() {
+            const centang = document.getElementById("successCentang");
+            centang.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const centang = document.getElementById("successCentang");
+            if (event.target === centang) {
+                centang.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>

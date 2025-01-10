@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Perpustakaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;;
+            background-color: #f0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            width: 100%;
+            background-color: rgb(114, 143, 72);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        nav ul li:nth-child(3) > a::after {
+            content: " \25BC";
+            font-size: 0.8em;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 140%;
+            left: 0;
+            background-color: rgb(114, 143, 72);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul ul li {
+            width: 180px;
+        }
+        nav ul ul li a {
+            padding: 10px 15px;
+            color: white;
+            background-color: rgb(114, 143, 72);
+            margin-bottom: 10px;
+            margin-top: 5px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul ul li a:hover {
+            background-color: white;
+            color: #000000d9;
+        }
+        footer {
+            width: 100%;
+            background-color: #2C5F2D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 25px;
+        }
+        header img {
+            vertical-align: middle;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .content h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .text-section {
+            width: 60%;
+            text-align: justify;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            text-align: left;
+        }
+        .maps {
+            width: 35%;
+            text-align: center;
+            margin-left: 20px;
+            margin-top: 70px;
+        }
+        .address {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .text-section, .maps {
+                width: 100%;
+                margin-top: 20px;
+            }
+            .maps {
+                margin-left: 0;
+            }
+        }
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+            }
+            footer {
+                padding: 15px 0;
+            }
+            
+            .content h1 {
+                font-size: 20px;
+            }
+            .text-section {
+                font-size: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            nav ul li {
+                margin: 0 10px;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+            }
+            footer {
+                padding: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo of Pasukan Ghoib Library" width="200">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Beranda.html">Beranda</a></li>
+            <li>
+                <a href="">Reservasi</a>
+                <ul>
+                    <li><a href="Transaksi.html">Buat Reservasi</a></li>
+                    <li><a href="Daftar Transaksi.html">Riwayat Reservasi</a></li>
+                </ul>
+            </li>
+            <li><a href="Profil.html">About Us</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="text-section">
+            <h1 style="text-align: center;">TENTANG KAMI</h1>
+            <p><strong>Visi:</strong> <br><br> Menjadi perpustakaan digital terkemuka yang menyediakan akses tak terbatas ke pengetahuan dan literatur berkualitas bagi semua kalangan, serta berkontribusi pada peningkatan literasi dan pengetahuan masyarakat.</p>
+            <p><strong>Misi:</strong></p>
+            <ul>
+                <li>Menyediakan koleksi buku digital yang kaya dan beragam, meliputi berbagai genre dan bidang ilmu pengetahuan.</li>
+                <li>Mempermudah akses ke literatur berkualitas melalui platform digital yang user-friendly.</li>
+                <li>Mendukung penelitian dan pembelajaran dengan menyediakan sumber daya yang andal dan terpercaya.</li>
+                <li>Menyelenggarakan program dan kegiatan yang mendorong minat baca dan meningkatkan literasi masyarakat.</li>
+                <li>Menjalin kemitraan dengan lembaga pendidikan dan komunitas untuk memperluas jangkauan layanan perpustakaan.</li>
+                <li>Mengutamakan kualitas layanan dan kepuasan pengguna dalam setiap aspek operasional perpustakaan.</li>
+            </ul>
+        </div>
+        <div class="maps">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5133.529551545489!2d-2.2954349706184995!3d53.46331053820165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bae73395762f1%3A0x19312432a8b12673!2sManchester%20United%20Football%20Ground!5e0!3m2!1sid!2sid!4v1736433610529!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+            <div class="address">Jalan Senyum Manis No. 432, Desa Tawa Ceria, Kecamatan Gelak Riang Gembira, Kota Ngakak Bahagia, Negara Tertawalahsaja</div>
+            <div class="contact-info">
+                <p>Layanan Perpustakaan Digital : <a href="tel:+62214455667">(021) 4455 667</a></p>
+                <p>Reservasi Lanjutan : <a href="tel:+6289988776655">+62 899 8877 6655</a></p>
+                <p>Email : <a href="mailto:pasukanghoiblibrary@gmail.com">pasukanghoiblibrary@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Pasukan Ghoib Library.
+    </footer>
+</body>
+</html>
